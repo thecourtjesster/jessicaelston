@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civic Research | Jessica Elston</title>
+<meta name="description" content="Congressional district intelligence, legislative voting analysis, precinct targeting, and donor research by Jessica Elston under Civic Accountability Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #022043;
+  --navy-deep: #011730;
+  --ink: #0f172a;
+  --blue: #008dd2;
+  --blue-dark: #0071ab;
+  --blue-pale: #eaf5fb;
+  --grey: #454f5e;
+  --offwhite: #fafafa;
+  --line: #e4e8ee;
+  --white: #ffffff;
+  --wrap: 68rem;
+  --narrow: 52rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: Montserrat, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 2rem; }
+.wrap.narrow { max-width: var(--narrow); }
+
+/* ---------- nav ---------- */
+.nav {
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav .wrap {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 64px;
+  flex-wrap: wrap;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.brand {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-right: auto;
+  white-space: nowrap;
+}
+
+.brand span { color: var(--blue); }
+
+.nav a.link {
+  color: #c9d4e2;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.nav a.link:hover { color: var(--white); }
+.nav a.link[aria-current="page"] { color: var(--blue); }
+
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover { background: var(--blue-dark); }
+
+.btn.ghost {
+  background: transparent;
+  border: 2px solid var(--white);
+  padding: 0.55rem 1.45rem;
+}
+
+.btn.ghost:hover { background: var(--white); color: var(--navy); }
+
+/* ---------- hero ---------- */
+.hero {
+  background: linear-gradient(150deg, #4b7ec4 0%, #7fa5d8 40%, #a9c3e6 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 5.5rem 0 7.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
+  margin-bottom: -1px;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.28;
+  margin: 0 auto 1.1rem;
+  max-width: 22ch;
+}
+
+.hero .sub {
+  font-size: 1.02rem;
+  font-weight: 400;
+  max-width: 44rem;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.hero .eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 1rem;
+}
+
+/* ---------- sections ---------- */
+section { padding: 4rem 0; }
+section.alt { background: var(--offwhite); }
+section.tight { padding: 2.75rem 0; }
+
+.intro {
+  font-size: 1.02rem;
+  color: var(--grey);
+  max-width: 46rem;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0 0 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+h2.blue { color: var(--blue); font-weight: 700; }
+
+h3 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+}
+
+h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.1rem; color: var(--grey); }
+p:last-child { margin-bottom: 0; }
+
+.section-head { margin-bottom: 2.2rem; }
+.section-head p { max-width: 46rem; margin-bottom: 0; }
+
+/* ---------- metrics ---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.25rem;
+}
+
+.metric {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--blue);
+  border-radius: 6px;
+  padding: 1.5rem 1.3rem;
+}
+
+.metric .num {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.metric .cap {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--grey);
+  margin-top: 0.55rem;
+}
+
+/* ---------- cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 1px 3px rgba(2, 32, 67, 0.05);
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 28px rgba(2, 32, 67, 0.1);
+  transform: translateY(-2px);
+}
+
+.card h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
+.card p { font-size: 0.95rem; }
+
+.card .go {
+  display: inline-block;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-top: 0.3rem;
+}
+
+.card .go:hover { text-decoration: underline; }
+
+/* ---------- roles / entries ---------- */
+.entry {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  border-radius: 6px;
+  padding: 1.6rem 1.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.entry:last-child { margin-bottom: 0; }
+
+.entry .meta {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 0.85rem;
+}
+
+.entry .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-pale);
+  border-radius: 3px;
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.entry p { font-size: 0.96rem; }
+
+ul.bullets { margin: 0; padding-left: 1.15rem; }
+ul.bullets li { margin-bottom: 0.55rem; color: var(--grey); font-size: 0.96rem; }
+ul.bullets li:last-child { margin-bottom: 0; }
+
+
+.result {
+  display: inline-block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--blue-pale);
+  border: 1px solid #cfe6f4;
+  border-radius: 4px;
+  padding: 0.45rem 0.85rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* ---------- chips ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.chip {
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--blue-pale);
+  border: 1px solid #cfe6f4;
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+}
+
+.skillgroup { margin-bottom: 1.6rem; }
+.skillgroup:last-child { margin-bottom: 0; }
+
+/* ---------- cta band ---------- */
+.band {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.band h2 { color: var(--white); margin-bottom: 0.9rem; }
+.band p { color: rgba(255, 255, 255, 0.82); max-width: 40rem; margin: 0 auto 1.8rem; }
+
+/* ---------- footer ---------- */
+footer {
+  background: var(--navy-deep);
+  color: rgba(255, 255, 255, 0.72);
+  padding: 3rem 0 2.5rem;
+  font-size: 0.9rem;
+}
+
+footer .cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.25rem;
+}
+
+footer h4 { color: var(--white); margin-bottom: 0.9rem; }
+footer p { color: rgba(255, 255, 255, 0.72); font-size: 0.9rem; line-height: 1.9; }
+footer a { color: rgba(255, 255, 255, 0.82); text-decoration: none; }
+footer a:hover { color: var(--blue); }
+footer ul { list-style: none; margin: 0; padding: 0; }
+footer li { margin-bottom: 0.45rem; }
+
+.legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 1.25rem; }
+  .hero { padding: 3.5rem 0 5.5rem; clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
+  section { padding: 3rem 0; }
+  .nav .wrap { gap: 1rem; }
+  .brand { width: 100%; margin-bottom: 0.3rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">JESSICA <span>ELSTON</span></a>
+    <a class="link" href="index.html">Work</a>
+    <a class="link" href="civic.html" aria-current="page">Civic Research</a>
+    <a class="link" href="workday.html">Workday &amp; HRIS</a>
+    <a class="btn" href="mailto:jessicanelston@gmail.com">Get in Touch</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Civic Accountability Lab</p>
+    <h1>The District Nobody Bothered to Study</h1>
+    <p class="sub">Congressional districts generate an enormous amount of public data, and almost nobody assembles it into something a candidate, a reporter, or a resident can use. That gap is the work.</p>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap">
+    <p class="intro">District intelligence, legislative accountability analysis, and the operational research infrastructure campaigns actually run on. Every figure below traces back to a public source.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h4>Projects</h4>
+      <h2 class="blue">Research that holds up under scrutiny</h2>
+    </div>
+
+    <div class="entry">
+      <span class="tag">District Intelligence &nbsp;&bull;&nbsp; WA-04</span>
+      <h3>District Needs &amp; Legislative Voting Analysis</h3>
+      <p>A full-length analysis pairing what Washington's 4th District actually needs against how its representation has voted. Sections cover healthcare, infrastructure and water, veterans and military, federal program funding, housing and food security, and political analysis, each grounded in federal data rather than talking points.</p>
+      <p>Built from Census, BLS, FRED, and Congress.gov sources with every claim traced to a citation, then packaged into an indicator-based accountability report that scores representation against measured district conditions.</p>
+    </div>
+
+    <div class="entry">
+      <span class="tag">District Intelligence &nbsp;&bull;&nbsp; MI-11</span>
+      <h3>Michigan 11th District Intelligence Report</h3>
+      <p>The same methodology applied to a second district as a client deliverable, producing a full intelligence report, a condensed district profile, and a strategic brief sized for a candidate's decision-making rather than a research audience.</p>
+      <p>It demonstrates the model is portable. The pipeline that assembles a district picture is reusable across all 435, which is the point.</p>
+    </div>
+
+    <div class="entry">
+      <span class="tag">Campaign Operations &nbsp;&bull;&nbsp; Congressional Campaign</span>
+      <h3>Precinct Targeting &amp; Research Infrastructure</h3>
+      <p>Retained by a congressional campaign for ongoing research, after leading its strategy and operations through the primary. Built a precinct-level targeting and analysis system for the district using the VoteWA results API and Washington Secretary of State GIS-ready files, then used certified precinct results to build the general election viability case for its two largest counties.</p>
+      <p>On the infrastructure side: VAN setup, a Zoho CRM donor system with ActBlue integration, Make.com automations for opposition research, and a volunteer research department with tiered task structures, so that volunteers with one hour and volunteers with ten both have something useful to do.</p>
+    </div>
+
+    <div class="entry">
+      <span class="tag">Fundraising Research</span>
+      <h3>Donor Pipeline &amp; Profiling Workflow</h3>
+      <p>A 585-donor pipeline assembled from FEC and Washington PDC filings, with a repeatable profiling workflow that turns a name and an employer into a capacity read and a finisher-ready call sheet. Includes suggested ask sizing against federal contribution limits, in-district tie identification, and the talking points a caller needs before they dial.</p>
+    </div>
+
+    <div class="entry">
+      <span class="tag">Public Tools</span>
+      <h3>WA-04 Citizen Toolkit</h3>
+      <p>The research turned outward. A packet built so a resident with no political background can use the district analysis: a one-page summary, a tool to compare their own situation against district data, town hall questions worth asking, contact scripts, and a social media guide.</p>
+      <p>Accountability research is only useful if the people it describes can pick it up, so this was designed for a reader who is not a professional.</p>
+    </div>
+
+    <div class="entry">
+      <span class="tag">Tooling</span>
+      <h3>Congressional Voting Research Toolkit</h3>
+      <p>The automation underneath the reports. Pulls from Census, BLS, Congress.gov, and FRED APIs, tracks indicators and voting records, and manages the citation trail so district analysis is a repeatable pipeline instead of a one-off research sprint.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h4>Method</h4>
+      <h2>Sources and stack</h2>
+      <p>The work leans on federal statistical products for district conditions, official filings for money, and state election infrastructure for voter and precinct data.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">U.S. Census / ACS</span>
+      <span class="chip">Bureau of Labor Statistics</span>
+      <span class="chip">Congress.gov</span>
+      <span class="chip">FRED</span>
+      <span class="chip">FEC filings</span>
+      <span class="chip">WA PDC</span>
+      <span class="chip">VoteWA results API</span>
+      <span class="chip">WA SOS GIS-ready files</span>
+      <span class="chip">GeoPandas</span>
+      <span class="chip">Python</span>
+      <span class="chip">SQL</span>
+      <span class="chip">NGP VAN</span>
+      <span class="chip">Zoho CRM</span>
+      <span class="chip">Make.com</span>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <h2>Running somewhere that has never been properly studied?</h2>
+    <p>District intelligence reports, legislative accountability analysis, targeting systems, and donor research, on a project or retainer basis. That is the interesting case.</p>
+    <a class="btn ghost" href="mailto:jessicanelston@gmail.com">Start a Conversation</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Jessica Elston</h4>
+        <p>Research analyst and data consultant working across workforce analytics, HR systems, and civic accountability research.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Work</a></li>
+          <li><a href="civic.html">Civic Research</a></li>
+          <li><a href="workday.html">Workday &amp; HRIS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Spokane, Washington</li>
+          <li><a href="mailto:jessicanelston@gmail.com">jessicanelston@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/jnelston/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">&copy; 2026 Jessica Elston. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
