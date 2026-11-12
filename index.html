@@ -3,613 +3,223 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jessica Elston | Research &amp; Data Analytics</title>
-<meta name="description" content="Jessica Elston is a research analyst and data consultant in Spokane, Washington, working across workforce analytics, HRIS systems, and civic accountability research.">
+<title>Jessica Elston | Research and Data Analysis</title>
+<meta name="description" content="Jessica Elston is a research analyst in Spokane, Washington. Workforce data, civic accountability research, and part-time subcontract work with research and evaluation firms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --navy: #022043;
-  --navy-deep: #011730;
-  --ink: #0f172a;
-  --blue: #008dd2;
-  --blue-dark: #0071ab;
-  --blue-pale: #eaf5fb;
-  --grey: #454f5e;
-  --offwhite: #fafafa;
-  --line: #e4e8ee;
-  --white: #ffffff;
-  --wrap: 68rem;
-  --narrow: 52rem;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--white);
-  color: var(--ink);
-  font-family: Montserrat, -apple-system, "Segoe UI", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.85;
-  -webkit-font-smoothing: antialiased;
-}
-
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 2rem; }
-.wrap.narrow { max-width: var(--narrow); }
-
-/* ---------- nav ---------- */
-.nav {
-  background: var(--navy);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-.nav .wrap {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  min-height: 64px;
-  flex-wrap: wrap;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-}
-
-.brand {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-right: auto;
-  white-space: nowrap;
-}
-
-.brand span { color: var(--blue); }
-
-.nav a.link {
-  color: #c9d4e2;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: color 0.15s;
-}
-
-.nav a.link:hover { color: var(--white); }
-.nav a.link[aria-current="page"] { color: var(--blue); }
-
-.btn {
-  display: inline-block;
-  background: var(--blue);
-  color: var(--white);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-
-.btn:hover { background: var(--blue-dark); }
-
-.btn.ghost {
-  background: transparent;
-  border: 2px solid var(--white);
-  padding: 0.55rem 1.45rem;
-}
-
-.btn.ghost:hover { background: var(--white); color: var(--navy); }
-
-/* ---------- hero ---------- */
-.hero {
-  background: linear-gradient(150deg, #4b7ec4 0%, #7fa5d8 40%, #a9c3e6 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 5.5rem 0 7.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
-  margin-bottom: -1px;
-}
-
-.hero h1 {
-  font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-  font-weight: 600;
-  line-height: 1.28;
-  margin: 0 auto 1.1rem;
-  max-width: 22ch;
-}
-
-.hero .sub {
-  font-size: 1.02rem;
-  font-weight: 400;
-  max-width: 44rem;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.94);
-}
-
-.hero .eyebrow {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0 0 1rem;
-}
-
-/* ---------- sections ---------- */
-section { padding: 4rem 0; }
-section.alt { background: var(--offwhite); }
-section.tight { padding: 2.75rem 0; }
-
-.intro {
-  font-size: 1.02rem;
-  color: var(--grey);
-  max-width: 46rem;
-  margin: 0 0 0.5rem;
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--ink);
-  margin: 0 0 1.6rem;
-  letter-spacing: -0.01em;
-}
-
-h2.blue { color: var(--blue); font-weight: 700; }
-
-h3 {
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0 0 0.3rem;
-}
-
-h4 {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin: 0 0 1rem;
-}
-
-p { margin: 0 0 1.1rem; color: var(--grey); }
-p:last-child { margin-bottom: 0; }
-
-.section-head { margin-bottom: 2.2rem; }
-.section-head p { max-width: 46rem; margin-bottom: 0; }
-
-/* ---------- metrics ---------- */
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 1.25rem;
-}
-
-.metric {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--blue);
-  border-radius: 6px;
-  padding: 1.5rem 1.3rem;
-}
-
-.metric .num {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.metric .cap {
-  display: block;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--grey);
-  margin-top: 0.55rem;
-}
-
-/* ---------- cards ---------- */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 2rem 1.75rem;
-  box-shadow: 0 1px 3px rgba(2, 32, 67, 0.05);
-  transition: box-shadow 0.18s, transform 0.18s;
-}
-
-.card:hover {
-  box-shadow: 0 10px 28px rgba(2, 32, 67, 0.1);
-  transform: translateY(-2px);
-}
-
-.card h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
-.card p { font-size: 0.95rem; }
-
-.card .go {
-  display: inline-block;
-  color: var(--blue);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  margin-top: 0.3rem;
-}
-
-.card .go:hover { text-decoration: underline; }
-
-/* ---------- roles / entries ---------- */
-.entry {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--blue);
-  border-radius: 6px;
-  padding: 1.6rem 1.75rem;
-  margin-bottom: 1.1rem;
-}
-
-.entry:last-child { margin-bottom: 0; }
-
-.entry .meta {
-  font-size: 0.84rem;
-  font-weight: 500;
-  color: var(--blue);
-  margin-bottom: 0.85rem;
-}
-
-.entry .tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue);
-  background: var(--blue-pale);
-  border-radius: 3px;
-  padding: 0.2rem 0.6rem;
-  margin-bottom: 0.7rem;
-}
-
-.entry p { font-size: 0.96rem; }
-
-ul.bullets { margin: 0; padding-left: 1.15rem; }
-ul.bullets li { margin-bottom: 0.55rem; color: var(--grey); font-size: 0.96rem; }
-ul.bullets li:last-child { margin-bottom: 0; }
-
-
-.result {
-  display: inline-block;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--navy);
-  background: var(--blue-pale);
-  border: 1px solid #cfe6f4;
-  border-radius: 4px;
-  padding: 0.45rem 0.85rem;
-  margin-top: 0.5rem;
-  line-height: 1.5;
-}
-
-/* ---------- chips ---------- */
-.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-.chip {
-  font-size: 0.83rem;
-  font-weight: 500;
-  color: var(--navy);
-  background: var(--blue-pale);
-  border: 1px solid #cfe6f4;
-  border-radius: 4px;
-  padding: 0.3rem 0.8rem;
-}
-
-.skillgroup { margin-bottom: 1.6rem; }
-.skillgroup:last-child { margin-bottom: 0; }
-
-/* ---------- cta band ---------- */
-.band {
-  background: var(--navy);
-  color: var(--white);
-  padding: 3.5rem 0;
-  text-align: center;
-}
-
-.band h2 { color: var(--white); margin-bottom: 0.9rem; }
-.band p { color: rgba(255, 255, 255, 0.82); max-width: 40rem; margin: 0 auto 1.8rem; }
-
-/* ---------- footer ---------- */
-footer {
-  background: var(--navy-deep);
-  color: rgba(255, 255, 255, 0.72);
-  padding: 3rem 0 2.5rem;
-  font-size: 0.9rem;
-}
-
-footer .cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 2rem;
-  margin-bottom: 2.25rem;
-}
-
-footer h4 { color: var(--white); margin-bottom: 0.9rem; }
-footer p { color: rgba(255, 255, 255, 0.72); font-size: 0.9rem; line-height: 1.9; }
-footer a { color: rgba(255, 255, 255, 0.82); text-decoration: none; }
-footer a:hover { color: var(--blue); }
-footer ul { list-style: none; margin: 0; padding: 0; }
-footer li { margin-bottom: 0.45rem; }
-
-.legal {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 1.5rem;
-  font-size: 0.83rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-@media (max-width: 640px) {
-  .wrap { padding: 0 1.25rem; }
-  .hero { padding: 3.5rem 0 5.5rem; clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
-  section { padding: 3rem 0; }
-  .nav .wrap { gap: 1rem; }
-  .brand { width: 100%; margin-bottom: 0.3rem; }
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="nav">
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">JESSICA <span>ELSTON</span></a>
-    <a class="link" href="index.html" aria-current="page">Work</a>
-    <a class="link" href="civic.html">Civic Research</a>
-    <a class="link" href="workday.html">Workday &amp; HRIS</a>
-    <a class="btn" href="mailto:jessicanelston@gmail.com">Get in Touch</a>
+    <a class="name" href="index.html">Jessica Elston</a>
+    <nav>
+      <a href="index.html" aria-current="page">Work</a>
+      <a href="civic.html">Civic research</a>
+      <a href="workday.html">Workday and HR systems</a>
+      <a href="mailto:jessicanelston@gmail.com">Email me</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Research Analyst &amp; Data Consultant</p>
-    <h1>From Raw Sources to a Defensible Answer</h1>
-    <p class="sub">I design the study, build the pipeline, run the analysis, and write the thing people actually read. Fifteen years of it, across workforce data, public-interest research, and enterprise systems.</p>
-  </div>
-</div>
+<main>
 
-<section class="tight">
-  <div class="wrap">
-    <p class="intro">Based in Spokane, Washington. Most of my work starts the same way: the question matters, the data exists, and it is scattered across six sources that disagree with each other. I do the assembling, the statistics, and the writing, and I stay accountable for whether the conclusion holds up when someone pushes on it.</p>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <h4>Capabilities</h4>
-      <h2 class="blue">What I actually do</h2>
+<section class="opening">
+  <div class="wrap split">
+    <div>
+      <h1>From raw sources to a defensible answer</h1>
+      <p class="lede">I'm a research analyst in Spokane, Washington. I design the study, build the pipeline, run the analysis, and write the report people actually use.</p>
+      <p>Most of my projects start the same way. The question matters, the data exists, and it's spread across six sources that disagree with each other. I pull it together, figure out what it says, and stand behind the conclusion when someone pushes on it. I've been doing this for 15 years, across workforce data, nonprofit finance, and civic and political research.</p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Research &amp; Analysis</h3>
-        <p>Framing the question, choosing the method, and running it. Predictive modeling, regression and applied statistics, forecasting, survey design and analysis, and qualitative synthesis when the numbers are not the whole story.</p>
-      </div>
-      <div class="card">
-        <h3>Data Engineering</h3>
-        <p>Getting the inputs trustworthy. ETL pipelines, multi-source integration, API-driven collection, cleaning, and the automation that turns a two-month manual cycle into something that reruns on demand.</p>
-      </div>
-      <div class="card">
-        <h3>Reporting &amp; Communication</h3>
-        <p>The part most analysis dies at. Dashboards in Power BI and Workday, written reports with a traceable citation for every claim, and briefs sized for the person making the decision.</p>
-      </div>
-    </div>
+    <aside class="sources">
+      <h4>Sources I've worked from</h4>
+      <ol>
+        <li>FEC and Washington PDC filings</li>
+        <li>VoteWA results API</li>
+        <li>Census, BLS and FRED</li>
+        <li>Congress.gov voting records</li>
+        <li>Workday and Prism Analytics</li>
+        <li>Interview transcripts</li>
+      </ol>
+    </aside>
   </div>
 </section>
 
-<section>
+<section class="block">
   <div class="wrap">
-    <div class="section-head">
-      <h4>Selected Work</h4>
-      <h2>Six projects worth describing in full</h2>
-      <p>A cross-section rather than a catalog. Deeper write-ups live on the civic research and Workday pages.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Predictive Modeling &nbsp;&bull;&nbsp; Python</span>
-      <h3>Turnover Forecasting Model</h3>
-      <p>A global manufacturer knew its attrition number after the fact and never before it. Retention spending went wherever the loudest complaint came from, which is a reasonable way to waste a budget.</p>
-      <p>I built a forecasting model in Python on top of consolidated Workday and survey data, testing which signals actually carried predictive weight rather than which ones people assumed did. The output gave leadership a forward-looking read they could target against, and the modeling process itself surfaced which data the organization had been collecting without ever using.</p>
-      <span class="result">Roughly 85% accuracy, in production use for workforce planning</span>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Research Design &nbsp;&bull;&nbsp; Federal Data</span>
-      <h3>Congressional District Intelligence Reports</h3>
-      <p>Congressional districts generate enormous amounts of public data and almost nobody assembles it. Candidates run on instinct about their own district because the alternative is a research project nobody has funded.</p>
-      <p>I built a repeatable method that pulls district conditions from Census, BLS, and FRED, pairs them against legislative voting records from Congress.gov, and produces an indicator-based accountability analysis with a traceable citation behind every claim. Applied first to Washington's 4th District across healthcare, infrastructure and water, veterans, federal funding, and housing and food security, then to Michigan's 11th as a client deliverable to prove the model was portable.</p>
-      <span class="result">Two full district reports plus condensed profiles and strategic briefs</span>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Data Engineering &nbsp;&bull;&nbsp; Automation</span>
-      <h3>Compliance Analytics Pipeline Rebuild</h3>
-      <p>Compliance and EEO reporting ran as a two-month manual assembly, which meant the numbers were stale by the time anyone read them and nobody could ask a follow-up question without restarting the whole thing.</p>
-      <p>I rebuilt it as an automated pipeline: sources pulled programmatically, validation built into the process rather than bolted on at the end, and the whole cycle rerunnable on demand. The point was not the hours saved. It was that a question could now be answered the same week it was asked.</p>
-      <span class="result">Two months down to twenty hours, audit-ready on demand</span>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Geospatial &nbsp;&bull;&nbsp; API Collection</span>
-      <h3>Precinct-Level Targeting System</h3>
-      <p>A congressional campaign needed to know which precincts were worth its limited field hours, and the certified results that would answer that were spread across a state API and a pile of GIS shapefiles.</p>
-      <p>I built a precinct-level analysis system pulling from the VoteWA results API and Washington Secretary of State GIS-ready files, joined to district geography, then used certified primary results to build a general election viability case focused on Yakima and Benton counties. The same infrastructure fed volunteer task assignment and opposition research automations.</p>
-      <span class="result">Precinct-level targeting driving field and fundraising strategy</span>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Reporting &nbsp;&bull;&nbsp; Power BI</span>
-      <h3>Executive Dashboard Rebuild</h3>
-      <p>Leadership reporting took roughly thirty hours to prepare, so it happened rarely and questions outside the standard set went unasked. Slow reporting does not just cost time, it quietly narrows what an organization is curious about.</p>
-      <p>I rebuilt the reporting layer in Power BI using M for transformation and DAX for measure logic, sitting on a consolidated data model rather than hand-assembled extracts. Preparation dropped to under ten minutes, and the visible change was behavioral: leaders started asking second and third questions because asking had stopped being expensive.</p>
-      <span class="result">Thirty hours down to under ten minutes</span>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Data Integration &nbsp;&bull;&nbsp; Global Scale</span>
-      <h3>Eleven-Country HR &amp; Finance Data Integration</h3>
-      <p>An international nonprofit ran HR, payroll, and finance across eleven countries and five continents in systems that had grown up independently and agreed on almost nothing, including what a headcount was.</p>
-      <p>I led the integration into a centralized reporting picture across Intacct, FinancialForce, and connected payroll systems, which meant resolving definitional conflicts before technical ones. Alongside it I coordinated multi-country compliance reporting with auditors and built the documentation that kept the definitions from drifting apart again.</p>
-      <span class="result">One reporting picture across eleven countries, audit-clean</span>
-    </div>
+    <h2>Working with research teams</h2>
+    <p>I take on part-time, remote subcontract work with research and evaluation firms. Bring me in for a scoped piece of a project: the data cleanup, the analysis, the interviews, or the report. I'm used to fitting into someone else's team and timeline.</p>
+    <ul class="plain">
+      <li><strong>Child welfare and foster care.</strong> I was a foster parent for 10 years and adopted my kids from foster care. I've watched the system fail kids by doing too little and fail families by moving too slowly, and I want to help measure both.</li>
+      <li><strong>Civic accountability.</strong> Campaign finance, voting records, district conditions, and who a policy actually serves.</li>
+      <li><strong>Workforce and organizations.</strong> People data, HR compliance, and workforce planning in corporate, college, and global nonprofit settings.</li>
+      <li><strong>Food and environment.</strong> Newer for me, but the same work: find where the system breaks and show it with data.</li>
+    </ul>
   </div>
 </section>
 
-<section class="alt">
+<section class="block">
   <div class="wrap">
-    <div class="section-head">
-      <h4>Portfolio</h4>
-      <h2>Go deeper</h2>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Civic &amp; Political Research</h3>
-        <p>District intelligence reports, legislative voting analysis, precinct targeting built from state election APIs, donor research from federal and state filings, and public accountability toolkits.</p>
-        <a class="go" href="civic.html">See the projects &rarr;</a>
+    <h2>Selected work</h2>
+    <p>Seven projects, each with the sources it was built on. The civic and Workday pages go deeper.</p>
+
+    <article class="project">
+      <div>
+        <h3>Frontline managers and AI</h3>
+        <p>A technology company wanted to know how frontline managers have to change as AI reshapes their teams. As a subcontractor on the research team, I coded interview transcripts against strict outcome criteria.</p>
+        <p>I built the analysis top-down, so the client team saw the answer first and the evidence underneath it.</p>
+        <p class="result">Result: analysis decks the client team reviewed and built on.</p>
       </div>
-      <div class="card">
-        <h3>Workday &amp; HR Systems</h3>
-        <p>Workday Prism ETL, EIB operations, custom reporting, security administration, and the global HRIS and nonprofit CRM work underneath it.</p>
-        <a class="go" href="workday.html">See the work &rarr;</a>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>Interview transcripts</li>
+          <li>Client outcome criteria</li>
+          <li>Coding framework built for the study</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Congressional district intelligence reports</h3>
+        <p>Districts produce a huge amount of public data, and almost nobody puts it together. Candidates end up running on instinct about their own district.</p>
+        <p>I built a repeatable method that pulls district conditions from federal data and pairs them with voting records, with a citation behind every claim. I ran it on Washington's 4th District first, then on Michigan's 11th as a paid client report.</p>
+        <p class="result">Result: two full district reports, plus short profiles and strategy briefs.</p>
       </div>
-    </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>U.S. Census, American Community Survey</li>
+          <li>Bureau of Labor Statistics</li>
+          <li>FRED</li>
+          <li>Congress.gov voting records</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Precinct-level targeting system</h3>
+        <p>A congressional campaign needed to know which precincts were worth its limited field hours. The certified results that could answer that were split between a state API and a stack of GIS files.</p>
+        <p>I joined them to district geography and built the general election case for Yakima and Benton counties. The same setup fed volunteer task assignments and research automations.</p>
+        <p class="result">Result: precinct-level targeting that drove field and fundraising decisions.</p>
+      </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>VoteWA results API</li>
+          <li>WA Secretary of State GIS files</li>
+          <li>Certified precinct results</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Turnover forecasting model</h3>
+        <p>A global manufacturer only knew its attrition number after people had already left, so retention money went wherever the loudest complaint was.</p>
+        <p>I built a forecasting model in Python on consolidated Workday and survey data, and tested which signals actually predicted turnover. Along the way it showed which data the company had been collecting and never using.</p>
+        <p class="result">Result: about 85% accuracy, in use for workforce planning.</p>
+      </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>Workday HCM</li>
+          <li>Employee survey data</li>
+          <li>Python models</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Compliance reporting rebuild</h3>
+        <p>EEO and compliance reporting took two months of manual work, so the numbers were stale by the time anyone read them.</p>
+        <p>I rebuilt it as an automated pipeline with the validation built in, so the whole thing could be rerun whenever someone had a new question.</p>
+        <p class="result">Result: two months down to twenty hours, ready for an auditor on demand.</p>
+      </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>Workday Prism Analytics</li>
+          <li>EIBs and HR compliance data</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Executive dashboard rebuild</h3>
+        <p>Leadership reporting took about thirty hours to prepare, so it rarely happened and follow-up questions went unasked.</p>
+        <p>I rebuilt it in Power BI on one consolidated data model. Once a report took minutes, leaders started asking second and third questions.</p>
+        <p class="result">Result: thirty hours of prep down to under ten minutes.</p>
+      </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>Power BI, with M and DAX</li>
+          <li>Consolidated Workday data model</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Eleven-country HR and finance integration</h3>
+        <p>An international nonprofit ran HR, payroll, and finance in eleven countries on systems that disagreed about almost everything, including what counted as a headcount.</p>
+        <p>I led the move to one reporting picture. That meant settling the definitions first, then the technology, and working with auditors on compliance reporting across countries.</p>
+        <p class="result">Result: one clean reporting picture across eleven countries.</p>
+      </div>
+      <aside class="sources">
+        <h4>Sources</h4>
+        <ol>
+          <li>Intacct</li>
+          <li>FinancialForce</li>
+          <li>Country payroll systems</li>
+        </ol>
+      </aside>
+    </article>
   </div>
 </section>
 
-<section>
+<section class="block">
   <div class="wrap">
-    <div class="section-head">
-      <h4>Toolset</h4>
-      <h2>Methods and tools</h2>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Research &amp; Statistics</h4>
-      <div class="chips">
-        <span class="chip">Research design</span>
-        <span class="chip">Predictive modeling</span>
-        <span class="chip">Applied statistics</span>
-        <span class="chip">Statistical regression</span>
-        <span class="chip">Forecasting</span>
-        <span class="chip">Survey research</span>
-        <span class="chip">Qualitative synthesis</span>
-        <span class="chip">Source citation &amp; verification</span>
-      </div>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Languages &amp; Analysis Tools</h4>
-      <div class="chips">
-        <span class="chip">SQL</span>
-        <span class="chip">Python</span>
-        <span class="chip">Power BI (M, DAX)</span>
-        <span class="chip">Power Query</span>
-        <span class="chip">Tableau</span>
-        <span class="chip">Excel, advanced</span>
-        <span class="chip">GeoPandas</span>
-        <span class="chip">R, learning</span>
-      </div>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Data Engineering</h4>
-      <div class="chips">
-        <span class="chip">ETL pipelines</span>
-        <span class="chip">Multi-source integration</span>
-        <span class="chip">API data collection</span>
-        <span class="chip">Data cleaning</span>
-        <span class="chip">Data modeling</span>
-        <span class="chip">Workflow automation</span>
-        <span class="chip">Power Automate</span>
-        <span class="chip">Make.com</span>
-      </div>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Systems</h4>
-      <div class="chips">
-        <span class="chip">Workday</span>
-        <span class="chip">Workday Prism Analytics</span>
-        <span class="chip">Salesforce / NPSP</span>
-        <span class="chip">EveryAction</span>
-        <span class="chip">NGP VAN</span>
-        <span class="chip">Intacct</span>
-        <span class="chip">FinancialForce</span>
-        <span class="chip">Zoho CRM</span>
-      </div>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Education</h4>
-      <div class="chips">
-        <span class="chip">M.Ed, Learning and Technology (WGU)</span>
-        <span class="chip">B.S. Business, Human Resource Management (WGU)</span>
-      </div>
-    </div>
+    <h2>Methods and tools</h2>
+    <dl class="tools">
+      <dt>Research</dt>
+      <dd>Research design, interviews and transcript coding, survey research, predictive modeling, regression, forecasting, source verification</dd>
+      <dt>Analysis</dt>
+      <dd>SQL, Python, GeoPandas, Power BI (M and DAX), Power Query, Tableau, advanced Excel, R (learning)</dd>
+      <dt>Data pipelines</dt>
+      <dd>ETL, multi-source integration, API collection, data cleaning and modeling, Power Automate, Make.com</dd>
+      <dt>Systems</dt>
+      <dd>Workday and Prism Analytics, Salesforce NPSP, EveryAction, NGP VAN, Zoho CRM, Intacct, FinancialForce</dd>
+      <dt>Education</dt>
+      <dd>M.Ed. in Learning and Technology; B.S. in Business, Human Resource Management (Western Governors University)</dd>
+    </dl>
   </div>
 </section>
 
-<div class="band">
+<section class="closing">
   <div class="wrap">
     <h2>Looking for an analyst who finishes the thought?</h2>
-    <p>Available for research contracts, analytics consulting, and full-time roles in data analytics, research, and people analytics. Full work history available on request.</p>
-    <a class="btn ghost" href="mailto:jessicanelston@gmail.com">Get in Touch</a>
+    <p>I'm open to part-time research contracts, subcontract work, and analytics consulting. Tell me what you're trying to answer.</p>
+    <a class="email" href="mailto:jessicanelston@gmail.com">Email me</a>
   </div>
-</div>
+</section>
+
+</main>
 
 <footer>
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Jessica Elston</h4>
-        <p>Research analyst and data consultant working across research design, statistical analysis, data pipelines, and civic accountability research.</p>
-      </div>
-      <div>
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Work</a></li>
-          <li><a href="civic.html">Civic Research</a></li>
-          <li><a href="workday.html">Workday &amp; HRIS</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>Spokane, Washington</li>
-          <li><a href="mailto:jessicanelston@gmail.com">jessicanelston@gmail.com</a></li>
-          <li><a href="https://www.linkedin.com/in/jnelston/">LinkedIn</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="legal">&copy; 2026 Jessica Elston. All rights reserved.</div>
+    <span>Jessica Elston, Spokane, Washington</span>
+    <a href="mailto:jessicanelston@gmail.com">jessicanelston@gmail.com</a>
+    <a href="https://www.linkedin.com/in/jnelston/">LinkedIn</a>
   </div>
 </footer>
-
 
 </body>
 </html>

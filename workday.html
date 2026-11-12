@@ -3,552 +3,196 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Workday &amp; HRIS | Jessica Elston</title>
-<meta name="description" content="Workday Prism Analytics ETL, EIB operations, reporting, security administration, and global HRIS work by Jessica Elston.">
+<title>Workday and HR Systems | Jessica Elston</title>
+<meta name="description" content="Workday Prism Analytics, reporting, EIBs and global HRIS work by Jessica Elston, research analyst in Spokane, Washington.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --navy: #022043;
-  --navy-deep: #011730;
-  --ink: #0f172a;
-  --blue: #008dd2;
-  --blue-dark: #0071ab;
-  --blue-pale: #eaf5fb;
-  --grey: #454f5e;
-  --offwhite: #fafafa;
-  --line: #e4e8ee;
-  --white: #ffffff;
-  --wrap: 68rem;
-  --narrow: 52rem;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--white);
-  color: var(--ink);
-  font-family: Montserrat, -apple-system, "Segoe UI", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.85;
-  -webkit-font-smoothing: antialiased;
-}
-
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 2rem; }
-.wrap.narrow { max-width: var(--narrow); }
-
-/* ---------- nav ---------- */
-.nav {
-  background: var(--navy);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-
-.nav .wrap {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  min-height: 64px;
-  flex-wrap: wrap;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-}
-
-.brand {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-right: auto;
-  white-space: nowrap;
-}
-
-.brand span { color: var(--blue); }
-
-.nav a.link {
-  color: #c9d4e2;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: color 0.15s;
-}
-
-.nav a.link:hover { color: var(--white); }
-.nav a.link[aria-current="page"] { color: var(--blue); }
-
-.btn {
-  display: inline-block;
-  background: var(--blue);
-  color: var(--white);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-
-.btn:hover { background: var(--blue-dark); }
-
-.btn.ghost {
-  background: transparent;
-  border: 2px solid var(--white);
-  padding: 0.55rem 1.45rem;
-}
-
-.btn.ghost:hover { background: var(--white); color: var(--navy); }
-
-/* ---------- hero ---------- */
-.hero {
-  background: linear-gradient(150deg, #4b7ec4 0%, #7fa5d8 40%, #a9c3e6 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 5.5rem 0 7.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
-  margin-bottom: -1px;
-}
-
-.hero h1 {
-  font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-  font-weight: 600;
-  line-height: 1.28;
-  margin: 0 auto 1.1rem;
-  max-width: 22ch;
-}
-
-.hero .sub {
-  font-size: 1.02rem;
-  font-weight: 400;
-  max-width: 44rem;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.94);
-}
-
-.hero .eyebrow {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0 0 1rem;
-}
-
-/* ---------- sections ---------- */
-section { padding: 4rem 0; }
-section.alt { background: var(--offwhite); }
-section.tight { padding: 2.75rem 0; }
-
-.intro {
-  font-size: 1.02rem;
-  color: var(--grey);
-  max-width: 46rem;
-  margin: 0 0 0.5rem;
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--ink);
-  margin: 0 0 1.6rem;
-  letter-spacing: -0.01em;
-}
-
-h2.blue { color: var(--blue); font-weight: 700; }
-
-h3 {
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0 0 0.3rem;
-}
-
-h4 {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin: 0 0 1rem;
-}
-
-p { margin: 0 0 1.1rem; color: var(--grey); }
-p:last-child { margin-bottom: 0; }
-
-.section-head { margin-bottom: 2.2rem; }
-.section-head p { max-width: 46rem; margin-bottom: 0; }
-
-/* ---------- metrics ---------- */
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 1.25rem;
-}
-
-.metric {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--blue);
-  border-radius: 6px;
-  padding: 1.5rem 1.3rem;
-}
-
-.metric .num {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.metric .cap {
-  display: block;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--grey);
-  margin-top: 0.55rem;
-}
-
-/* ---------- cards ---------- */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 2rem 1.75rem;
-  box-shadow: 0 1px 3px rgba(2, 32, 67, 0.05);
-  transition: box-shadow 0.18s, transform 0.18s;
-}
-
-.card:hover {
-  box-shadow: 0 10px 28px rgba(2, 32, 67, 0.1);
-  transform: translateY(-2px);
-}
-
-.card h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
-.card p { font-size: 0.95rem; }
-
-.card .go {
-  display: inline-block;
-  color: var(--blue);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  margin-top: 0.3rem;
-}
-
-.card .go:hover { text-decoration: underline; }
-
-/* ---------- roles / entries ---------- */
-.entry {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--blue);
-  border-radius: 6px;
-  padding: 1.6rem 1.75rem;
-  margin-bottom: 1.1rem;
-}
-
-.entry:last-child { margin-bottom: 0; }
-
-.entry .meta {
-  font-size: 0.84rem;
-  font-weight: 500;
-  color: var(--blue);
-  margin-bottom: 0.85rem;
-}
-
-.entry .tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue);
-  background: var(--blue-pale);
-  border-radius: 3px;
-  padding: 0.2rem 0.6rem;
-  margin-bottom: 0.7rem;
-}
-
-.entry p { font-size: 0.96rem; }
-
-ul.bullets { margin: 0; padding-left: 1.15rem; }
-ul.bullets li { margin-bottom: 0.55rem; color: var(--grey); font-size: 0.96rem; }
-ul.bullets li:last-child { margin-bottom: 0; }
-
-
-.result {
-  display: inline-block;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--navy);
-  background: var(--blue-pale);
-  border: 1px solid #cfe6f4;
-  border-radius: 4px;
-  padding: 0.45rem 0.85rem;
-  margin-top: 0.5rem;
-  line-height: 1.5;
-}
-
-/* ---------- chips ---------- */
-.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
-.chip {
-  font-size: 0.83rem;
-  font-weight: 500;
-  color: var(--navy);
-  background: var(--blue-pale);
-  border: 1px solid #cfe6f4;
-  border-radius: 4px;
-  padding: 0.3rem 0.8rem;
-}
-
-.skillgroup { margin-bottom: 1.6rem; }
-.skillgroup:last-child { margin-bottom: 0; }
-
-/* ---------- cta band ---------- */
-.band {
-  background: var(--navy);
-  color: var(--white);
-  padding: 3.5rem 0;
-  text-align: center;
-}
-
-.band h2 { color: var(--white); margin-bottom: 0.9rem; }
-.band p { color: rgba(255, 255, 255, 0.82); max-width: 40rem; margin: 0 auto 1.8rem; }
-
-/* ---------- footer ---------- */
-footer {
-  background: var(--navy-deep);
-  color: rgba(255, 255, 255, 0.72);
-  padding: 3rem 0 2.5rem;
-  font-size: 0.9rem;
-}
-
-footer .cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 2rem;
-  margin-bottom: 2.25rem;
-}
-
-footer h4 { color: var(--white); margin-bottom: 0.9rem; }
-footer p { color: rgba(255, 255, 255, 0.72); font-size: 0.9rem; line-height: 1.9; }
-footer a { color: rgba(255, 255, 255, 0.82); text-decoration: none; }
-footer a:hover { color: var(--blue); }
-footer ul { list-style: none; margin: 0; padding: 0; }
-footer li { margin-bottom: 0.45rem; }
-
-.legal {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 1.5rem;
-  font-size: 0.83rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-@media (max-width: 640px) {
-  .wrap { padding: 0 1.25rem; }
-  .hero { padding: 3.5rem 0 5.5rem; clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
-  section { padding: 3rem 0; }
-  .nav .wrap { gap: 1rem; }
-  .brand { width: 100%; margin-bottom: 0.3rem; }
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="nav">
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">JESSICA <span>ELSTON</span></a>
-    <a class="link" href="index.html">Work</a>
-    <a class="link" href="civic.html">Civic Research</a>
-    <a class="link" href="workday.html" aria-current="page">Workday &amp; HRIS</a>
-    <a class="btn" href="mailto:jessicanelston@gmail.com">Get in Touch</a>
+    <a class="name" href="index.html">Jessica Elston</a>
+    <nav>
+      <a href="index.html">Work</a>
+      <a href="civic.html">Civic research</a>
+      <a href="workday.html" aria-current="page">Workday and HR systems</a>
+      <a href="mailto:jessicanelston@gmail.com">Email me</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Reporting, Prism ETL &amp; Global HRIS</p>
-    <h1>The Work That Makes an HRIS Trustworthy</h1>
-    <p class="sub">Three years inside Workday at a global manufacturer, joining a few weeks after go-live and spending the whole tenure in stabilization and build rather than implementation.</p>
-  </div>
-</div>
+<main>
 
-<section class="tight">
+<section class="opening">
   <div class="wrap">
-    <p class="intro">Mostly the unglamorous kind of work that decides whether anyone believes the numbers: getting data in cleanly, getting reports out reliably, and making sure the right people can see the right things.</p>
+    <h1>The work that makes an HRIS trustworthy</h1>
+    <p class="lede">Three years inside Workday at a global manufacturer of about 14,000 people in 20+ countries. I joined a few weeks after go-live and spent the whole time stabilizing and building.</p>
+    <p>Most of it was the unglamorous work that decides whether anyone believes the numbers: getting data in cleanly, getting reports out reliably, and making sure the right people see the right things.</p>
   </div>
 </section>
 
-<section class="alt">
+<section class="block">
   <div class="wrap">
-    <div class="section-head">
-      <h4>Inside Workday</h4>
-      <h2 class="blue">What I built and ran</h2>
-    </div>
+    <h2>Inside Workday</h2>
 
-    <div class="entry">
-      <span class="tag">Prism Analytics</span>
-      <h3>ETL &amp; Data Consolidation</h3>
-      <p>Three-plus years of Workday Prism Analytics ETL work, bringing multi-source datasets together so reporting drew on one consolidated picture instead of four disagreeing extracts. Combined Workday data with survey systems and external sources, which is where most accuracy problems live.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Data Operations</span>
-      <h3>EIB Creation &amp; Mass Data Loads</h3>
-      <p>Created and managed EIBs for complex data operations across global teams, covering mass uploads, corrections, and the validation work that keeps a bad load from becoming a six-week cleanup. Built the checking step into the process rather than treating it as optional.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Reporting</span>
-      <h3>Dashboards &amp; Custom Reports</h3>
-      <p>Designed custom dashboards in Workday and Power BI for leadership, taking reporting prep from roughly thirty hours down to under ten minutes. The Power BI side used M and DAX for transformation and measure logic.</p>
-      <p>The time saving mattered less than the effect on behavior. When a report takes thirty hours, leaders stop asking. When it takes ten minutes, they start asking better questions.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Compliance</span>
-      <h3>Automated Compliance &amp; EEO Pipelines</h3>
-      <p>Automated the compliance and EEO analytics pipelines, cutting the cycle from two months to twenty hours. Supported audit readiness with reporting that could be regenerated on demand rather than reconstructed by hand each cycle.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Security</span>
-      <h3>Security Groups &amp; Role-Based Access</h3>
-      <p>Improved Workday security configurations and role-based access to support compliance and audit requirements, working through who legitimately needs which data rather than defaulting to broad access.</p>
-    </div>
-
-    <div class="entry">
-      <span class="tag">Analytics</span>
-      <h3>Predictive Turnover Model</h3>
-      <p>Built a turnover forecasting model in Python reaching roughly 85% accuracy on top of the consolidated Workday data, giving leadership advance signal on workforce trends and a basis for targeting retention effort.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <h4>Beyond Workday</h4>
-      <h2>Global HRIS and CRM systems</h2>
-    </div>
-
-    <div class="entry">
-      <div class="meta">International Nonprofit &nbsp;&bull;&nbsp; Eleven Countries</div>
-      <h3>Eleven-Country HR &amp; Finance Systems Rollout</h3>
-      <p>Rolled out global HR and finance systems across eleven countries and five continents, centralizing payroll, benefits, and reporting into Intacct, FinancialForce, and connected payroll systems. Supported Salesforce and payroll integrations, developed policy and documentation for consistent global process, and coordinated with auditors on multi-country compliance reporting.</p>
-    </div>
-
-    <div class="entry">
-      <div class="meta">Community College System</div>
-      <h3>HRIS Reporting &amp; Compliance</h3>
-      <p>Managed HRIS reporting and compliance across 550-plus employees, designed dashboards aligned to institutional planning, supported security and access management, and streamlined workflows including reduction-in-force protocols under union contracts.</p>
-    </div>
-
-    <div class="entry">
-      <div class="meta">Nonprofit &amp; Campaign CRM</div>
-      <h3>Constituent &amp; Donor Data Systems</h3>
-      <p>Ongoing work in Salesforce NPSP, EveryAction, and NGP VAN for nonprofit and campaign data operations, including CRM builds, integrations, and the data hygiene practices that keep a constituent database usable past its first year.</p>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <h4>Toolset</h4>
-      <h2>Systems and tools</h2>
-    </div>
-
-    <div class="skillgroup">
-      <h4>Workday</h4>
-      <div class="chips">
-        <span class="chip">Prism Analytics</span>
-        <span class="chip">EIBs</span>
-        <span class="chip">Custom reports</span>
-        <span class="chip">Security groups</span>
-        <span class="chip">Business processes</span>
+    <article class="project">
+      <div>
+        <h3>Prism ETL and data consolidation</h3>
+        <p>Three-plus years of Prism Analytics ETL, bringing Workday, survey, and outside data into one picture so reporting stopped drawing on four extracts that disagreed.</p>
+        <p class="result">Result: one consolidated dataset behind the CHRO's monthly dashboards and board reporting.</p>
       </div>
-    </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday Prism Analytics</li>
+          <li>Workday HCM, Payroll, Benefits, Recruiting, Learning</li>
+          <li>Employee survey platforms</li>
+        </ol>
+      </aside>
+    </article>
 
-    <div class="skillgroup">
-      <h4>Reporting &amp; Automation</h4>
-      <div class="chips">
-        <span class="chip">Power BI (M, DAX)</span>
-        <span class="chip">Power Query</span>
-        <span class="chip">Power Automate</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Python</span>
-        <span class="chip">Excel, advanced</span>
+    <article class="project">
+      <div>
+        <h3>EIBs and mass data loads</h3>
+        <p>Built and ran EIBs for mass uploads and corrections across global teams, with the validation step built into the process so a bad load never turned into a six-week cleanup.</p>
       </div>
-    </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday EIBs</li>
+          <li>Excel validation templates</li>
+        </ol>
+      </aside>
+    </article>
 
-    <div class="skillgroup">
-      <h4>Other Platforms</h4>
-      <div class="chips">
-        <span class="chip">Salesforce / NPSP</span>
-        <span class="chip">EveryAction</span>
-        <span class="chip">NGP VAN</span>
-        <span class="chip">Intacct</span>
-        <span class="chip">FinancialForce</span>
-        <span class="chip">Zoho CRM</span>
+    <article class="project">
+      <div>
+        <h3>Dashboards and custom reports</h3>
+        <p>Owned 200+ reports and built leadership dashboards in Workday and Power BI, using Discovery Boards, Composite Reports, and calculated fields. Leadership reporting prep went from about thirty hours to under ten minutes, and leaders started asking better follow-up questions.</p>
+        <p class="result">Result: monthly CHRO dashboards, quarterly C-suite reporting, and the analysis behind the annual board deck.</p>
       </div>
-    </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday reporting, Discovery Boards</li>
+          <li>Power BI, with M and DAX</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Compliance and EEO pipelines</h3>
+        <p>Automated compliance and EEO reporting, and ran the EEO, benefits, and compliance audits through a long run of mergers and acquisitions. Reports could be rerun on demand instead of rebuilt by hand each cycle.</p>
+        <p class="result">Result: the reporting cycle went from two months to twenty hours.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday Prism Analytics</li>
+          <li>EIBs</li>
+          <li>Federal EEO reporting requirements</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Position control</h3>
+        <p>Designed a position control system for a 3,500-person corporate organization. I built the structure around positions first, with directors and managers, then slotted people in, instead of drawing the org chart around names.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday HCM</li>
+          <li>Leadership working sessions</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Security and role-based access</h3>
+        <p>Tightened Workday security groups and role-based access for compliance and audits, working through who actually needed which data instead of defaulting to broad access.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Workday security groups</li>
+        </ol>
+      </aside>
+    </article>
   </div>
 </section>
 
-<div class="band">
+<section class="block">
   <div class="wrap">
-    <h2>Need someone who has actually cleaned up a Workday tenant?</h2>
-    <p>Available for HRIS analyst roles, Workday reporting and Prism work, and analytics consulting engagements.</p>
-    <a class="btn ghost" href="mailto:jessicanelston@gmail.com">Get in Touch</a>
+    <h2>Before Workday</h2>
+
+    <article class="project">
+      <div>
+        <h3>Eleven-country HR and finance rollout</h3>
+        <p>At an international nonprofit, I moved payroll, benefits, and finance reporting for eleven countries onto shared systems, wrote the policies that kept definitions consistent, and worked with auditors on multi-country compliance.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Intacct</li>
+          <li>FinancialForce</li>
+          <li>Salesforce and payroll integrations</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>College system HR reporting</h3>
+        <p>At Community Colleges of Spokane, I ran HR reporting and compliance for 550+ employees, built planning dashboards, designed position control across units, and evaluated a statewide move from PeopleSoft to Workday.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>PeopleSoft</li>
+          <li>Power BI</li>
+        </ol>
+      </aside>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Nonprofit and campaign CRMs</h3>
+        <p>CRM builds, integrations, and data cleanup in Salesforce NPSP, EveryAction, and NGP VAN, so a constituent database stays usable past its first year.</p>
+      </div>
+      <aside class="sources">
+        <h4>Systems</h4>
+        <ol>
+          <li>Salesforce NPSP</li>
+          <li>EveryAction</li>
+          <li>NGP VAN</li>
+        </ol>
+      </aside>
+    </article>
   </div>
-</div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Need someone who has cleaned up a Workday tenant?</h2>
+    <p>I'm open to Workday reporting and Prism contracts, HRIS analyst work, and analytics consulting.</p>
+    <a class="email" href="mailto:jessicanelston@gmail.com">Email me</a>
+  </div>
+</section>
+
+</main>
 
 <footer>
   <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Jessica Elston</h4>
-        <p>Research analyst and data consultant working across workforce analytics, HR systems, and civic accountability research.</p>
-      </div>
-      <div>
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Work</a></li>
-          <li><a href="civic.html">Civic Research</a></li>
-          <li><a href="workday.html">Workday &amp; HRIS</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>Spokane, Washington</li>
-          <li><a href="mailto:jessicanelston@gmail.com">jessicanelston@gmail.com</a></li>
-          <li><a href="https://www.linkedin.com/in/jnelston/">LinkedIn</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="legal">&copy; 2026 Jessica Elston. All rights reserved.</div>
+    <span>Jessica Elston, Spokane, Washington</span>
+    <a href="mailto:jessicanelston@gmail.com">jessicanelston@gmail.com</a>
+    <a href="https://www.linkedin.com/in/jnelston/">LinkedIn</a>
   </div>
 </footer>
 
